@@ -47,6 +47,7 @@ WIFI_PASSWORD = "your password"
 | `image_gallery/image_gallery.py` | Five images from flash, by button | No | No | On press | Use `640x400/` |
 | `image_gallery/image_gallery_sd.py` | Five images from SD, by button | No | Yes | On press | Use `640x400/` |
 | `image_gallery/image_gallery_sd_random.py` | Random SD image | No | Yes | 60 min | Use `640x400/` |
+| `image_gallery/sd_photo_frame.py` | Random SD picture, A and E step through them | No | Yes | 8 h | Written for 4.0" |
 | `carbon_intensity.py` | UK electricity mix chart | Yes | No | Once | Adapts |
 | `inky_frame_daily_activity.py` | Random activity idea | Yes | No | 60 s | Long text overlaps |
 | `inky_frame_news.py` | Two BBC headlines with QR codes | Yes | No | 60 s | Long text clips |
@@ -101,6 +102,16 @@ Same as `image_gallery.py`, but the images come from the root of the SD card.
 ### `image_gallery/image_gallery_sd_random.py`
 
 Shows a random `.jpg` or `.jpeg` from the root of the SD card, then sleeps for `UPDATE_INTERVAL` minutes (60 by default). This is the simplest base for a battery photo frame.
+
+### `image_gallery/sd_photo_frame.py`
+
+A battery photo frame for the 4.0". It shows a random picture from the root of the SD card and powers off for 8 hours (`UPDATE_INTERVAL`). Button A shows the previous picture and button E the next, in filename order, wrapping at the ends. Buttons B, C and D wake the board but leave the picture alone. Save it to the board as `main.py`.
+
+It remembers the current picture in `/photo_frame_last.txt` on the flash and never writes to the SD card. A file that won't decode is skipped. If there is no card or no usable picture it shows a message and still powers off, so the batteries don't drain. On battery a button press wakes the board. On USB the board stays on and the program watches A and E while it waits. It drives the clock chip directly, so it also runs on older firmware that has no `inky_frame.sleep_for()`.
+
+### `image_gallery/prepare_photos.py`
+
+Runs on your computer and needs Pillow (`pip install pillow`). `python3 prepare_photos.py my_photos sd_ready` applies the photo's rotation, crops and resizes it to 640x400, boosts the colour and contrast (`--saturation`, `--contrast`) and saves a non-progressive JPEG with a plain ASCII filename. `--pad` adds white bars instead of cropping, which suits portrait photos. HEIC files aren't supported, so convert those first.
 
 ## Online displays
 

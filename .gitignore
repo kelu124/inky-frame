@@ -1,3 +1,4 @@
+custom/
 # Prerequisites
 *.d
 
@@ -47,3 +48,6 @@ venv
 
 # Claude Code personal overrides
 .claude/settings.local.json
+
+# Personal photos for the photo frame
+examples/image_gallery/custom/

@@ -3,6 +3,7 @@
 - [Image transfer instructions](#image-transfer-instructions)
   - [image\_gallery.py](#image_gallerypy)
   - [image\_gallery\_sd.py / image\_gallery\_sd\_random.py](#image_gallery_sdpy--image_gallery_sd_randompy)
+  - [sd\_photo\_frame.py](#sd_photo_framepy)
 - [Image Credits](#image-credits)
 
 Some example programs to display images on your Inky Frame, plus sample images in different sizes.
@@ -36,6 +37,17 @@ sd_spi = SPI(0, sck=Pin(18, Pin.OUT), mosi=Pin(19, Pin.OUT), miso=Pin(16, Pin.OU
 sd = sdcard.SDCard(sd_spi, Pin(22))
 os.mount(sd, "/sd")
 ```
+
+### sd_photo_frame.py
+
+For the 4.0" only. Prepare your pictures on your computer, then copy the contents of the output folder to the root of the SD card:
+
+```bash
+pip install pillow
+python3 prepare_photos.py my_photos sd_ready
+```
+
+Save `sd_photo_frame.py` to your Pico W as `main.py`. It shows a random picture every 8 hours. Button A shows the previous picture and button E the next.
 
 ## Image Credits
 
