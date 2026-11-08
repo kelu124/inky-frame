@@ -13,6 +13,6 @@ Keep `CLAUDE.md` and `.claude/` out of any PR to Pimoroni.
 
 **Why:** the scaffolding is personal to this fork, and anything pushed to the fork is public.
 
-**How to apply:** before committing, check that `secrets.py` is not in the diff. For upstream PRs, branch from upstream's history without the scaffolding commit.
+**How to apply:** before committing, check that `secrets.py` is not in the diff. For upstream PRs, branch from Pimoroni's history without the scaffolding commits, because the fork's `main` includes them since 2026-11-08.
 
 See also [[project-status]].

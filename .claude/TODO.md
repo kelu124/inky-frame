@@ -2,6 +2,10 @@
 
 Open work for this repo. Move finished items to `.claude/DONE.md` with their completion date.
 
+## To confirm on the board
+
+- [ ] `examples/image_gallery/sd_photo_frame.py` on battery: unplug USB, check that A and E wake the board and step the right way, and that the picture changes by itself after 8 hours.
+
 ## Bugs in the examples
 
 Found by reading the code, see "Known issues" in `docs/examples.md`. None have been reproduced on a board.

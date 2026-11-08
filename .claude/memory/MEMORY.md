@@ -1,2 +1,4 @@
-- [Project status](project-status.md) — scaffolding only so far, nothing tested on hardware, still need to know what the frame should show
+- [Project status](project-status.md) — battery photo frame installed and working on USB, wake from battery still to confirm, old firmware
+- [Board workflow](board-workflow.md) — mpremote install and test recipes, what's on the board, how to add new photos
+- [Test on the board](test-on-the-board.md) — probe the real firmware, check USB or battery first, "push" can mean the board
 - [Repo remotes](repo-remotes.md) — origin is the user's fork, keep scaffolding out of upstream PRs, never commit real WiFi credentials

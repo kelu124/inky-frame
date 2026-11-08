@@ -50,6 +50,14 @@ The `.uf2` files are copied to the current directory. `boards/*/version.py` is g
 
 CI only lints and builds. Behaviour changes have to be checked on a real board, so say so when a change has not been tested on hardware.
 
+## Working with the board
+
+Use `mpremote` over USB. `mpremote connect /dev/ttyACM0 run file.py` runs a file without installing it, and `mpremote connect /dev/ttyACM0 cp file.py :main.py` installs it. Copy the existing `main.py` first if it hasn't been saved.
+
+The user's frame runs MicroPython 1.19.1 from February 2023, which is much older than this repo's `modules/inky_frame.py`. It has no `sleep_for`, `turn_off`, `woken_by_*`, `rtc` or colour constants in `inky_frame`, and `str.endswith()` rejects tuples. Code that uses these fails on the frame even though it passes lint.
+
+On USB the board never powers off, so a button can't wake it. Anything meant to respond to buttons on USB has to poll them, and power-off and wake behaviour can only be tested on battery.
+
 ## Working notes
 
 - `.claude/TODO.md` lists open work and is loaded at the start of each session by a SessionStart hook.

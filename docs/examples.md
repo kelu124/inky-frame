@@ -109,6 +109,8 @@ A battery photo frame for the 4.0". It shows a random picture from the root of t
 
 It remembers the current picture in `/photo_frame_last.txt` on the flash and never writes to the SD card. A file that won't decode is skipped. If there is no card or no usable picture it shows a message and still powers off, so the batteries don't drain. On battery a button press wakes the board. On USB the board stays on and the program watches A and E while it waits. It drives the clock chip directly, so it also runs on older firmware that has no `inky_frame.sleep_for()`.
 
+To install it with the board on USB, run `mpremote connect /dev/ttyACM0 cp examples/image_gallery/sd_photo_frame.py :main.py`, after copying any existing `main.py` you want to keep. Works over USB, including the A and E buttons. Waking from power-off on battery has not been confirmed yet.
+
 ### `image_gallery/prepare_photos.py`
 
 Runs on your computer and needs Pillow (`pip install pillow`). `python3 prepare_photos.py my_photos sd_ready` applies the photo's rotation, crops and resizes it to 640x400, boosts the colour and contrast (`--saturation`, `--contrast`) and saves a non-progressive JPEG with a plain ASCII filename. `--pad` adds white bars instead of cropping, which suits portrait photos. HEIC files aren't supported, so convert those first.

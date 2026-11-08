@@ -1,6 +1,6 @@
 ---
 name: project-status
-description: Where the Inky Frame 4.0" tweaking work stands, what is unverified, and the question still open with the user
+description: The Inky Frame 4.0" is a battery photo frame; what is installed on it and what is still unconfirmed
 metadata:
   type: project
 ---
