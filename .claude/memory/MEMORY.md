@@ -1,0 +1,2 @@
+- [Project status](project-status.md) — scaffolding only so far, nothing tested on hardware, still need to know what the frame should show
+- [Repo remotes](repo-remotes.md) — origin is the user's fork, keep scaffolding out of upstream PRs, never commit real WiFi credentials
